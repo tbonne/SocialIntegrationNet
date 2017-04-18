@@ -16,14 +16,14 @@ library(igraph)
 
 ### Modeling social integration   
 
-This package contains models for simulating integration in social networks. The package contains the following models:
+This package contains models for simulating integration in social networks, and contains the following models:
 
-1. Social induction.  
+**Social induction.**  
 
 This model reproduces the model introduced by Ilany and Akçay (2016). In this model incoming individuals form ties based on the parent node, and based whether other group members are connected to the parent node or not.  
 
 ```{r}
-#An inital network
+#Inital network
 startingNet = erdos.renyi.game(n=25, type = c("gnm"), p.or.m = 45)
 
 #Simulate introductions and removals (i.e., iter)
@@ -34,13 +34,13 @@ par(mfrow=c(1,2), mar=c(1,1,1,1))
 plot(startingNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 plot(predictedNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)  
 ```
-  
-2. Weighted Social Indction.  
+    
+**Weighted Social Induction.**   
 
 This model simply extends the Ilany and Akçay (2016) model by including tie weights. This allows for effort to be taken into account.  
   
 ```{r}
-#An inital weighted network
+#Inital weighted network
 startingNet = erdos.renyi.game(n=10, type = c("gnm"), p.or.m = 15)
 E(startingNet)$weight<-c(2,25,1,1,1,1,4,5,6,9,2,1,2,1,2)
 
