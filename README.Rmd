@@ -1,21 +1,15 @@
 ---
 title: "socialIntegrationNet"
-output: html_document
+output: html_notebook
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-## Modeling social integration 
+### Modeling social integration   
 
 This package contains models for simulating integration in social networks. The package contains the following models:
 
 1. Social induction.  
 
 This model reproduces the model introduced by Ilany and Akçay (2016). In this model incoming individuals form ties based on the parent node, and based whether other group members are connected to the parent node or not.  
-  
-Ilany, A. & Akçay, E. (2016) Social inheritance can explain the structure of animal social networks. Nature Communications, 7, 12084.  
 
 ```{r}
 library(SocialIntegrationNet)
@@ -29,13 +23,13 @@ predictedNet<-socialInduction(startingNet, Pn=0.4, Pr=0.1, Pb=1, iter=100)
 
 #compare starting and ending network properties
 par(mfrow=c(1,2))
-plot(startingNet)
-plot(predictedNet)  
+plot(startingNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
+plot(predictedNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)  
 ```
   
 2. Weighted Social Indction.  
 
-This model simply extends the Ilany et al (2016) model by including tie weights. This allows for effort to be taken into account.  
+This model simply extends the Ilany and Akçay (2016) model by including tie weights. This allows for effort to be taken into account.  
   
 ```{r}
 #An inital weighted network
@@ -47,8 +41,10 @@ predWeightedNet<-socialInductionWeighted(startingNet, Pn=0.4,Pr=0.1,Pb=1,En1=0.1
 
 #compare starting and ending network properties
 par(mfrow=c(1,2))
-plot(startingNet, edge.width=E(startingNet)$weight)
-plot(predWeightedNet, edge.width=E(predWeightedNet)$weight)
-  
+plot(startingNet, edge.width=E(startingNet)$weight^0.5,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
+plot(predWeightedNet, edge.width=E(predWeightedNet)$weight^0.5,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 ```
 
+Reference:
+
+Ilany, A. & Akçay, E. (2016) Social inheritance can explain the structure of animal social networks. Nature Communications, 7, 12084.  
