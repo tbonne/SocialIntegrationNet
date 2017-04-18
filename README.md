@@ -1,28 +1,12 @@
----
-title: "socialIntegrationNet"
-author: Tyler Bonnell
-date: April 17, 2017
-output:
-  md_document:
-    variant: markdown_github
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=TRUE)
-library(SocialIntegrationNet)
-library(igraph)
-```
-
-
-### Modeling social integration   
+### Modeling social integration
 
 This package contains models for simulating integration in social networks. The package contains the following models:
 
-1. Social induction.  
+1.  Social induction.
 
-This model reproduces the model introduced by Ilany and Akçay (2016). In this model incoming individuals form ties based on the parent node, and based whether other group members are connected to the parent node or not.  
+This model reproduces the model introduced by Ilany and AkÃ§ay (2016). In this model incoming individuals form ties based on the parent node, and based whether other group members are connected to the parent node or not.
 
-```{r}
+``` r
 #An inital network
 startingNet = erdos.renyi.game(n=25, type = c("gnm"), p.or.m = 45)
 
@@ -34,12 +18,14 @@ par(mfrow=c(1,2), mar=c(1,1,1,1))
 plot(startingNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 plot(predictedNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)  
 ```
-  
-2. Weighted Social Indction.  
 
-This model simply extends the Ilany and Akçay (2016) model by including tie weights. This allows for effort to be taken into account.  
-  
-```{r}
+![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
+
+1.  Weighted Social Indction.
+
+This model simply extends the Ilany and AkÃ§ay (2016) model by including tie weights. This allows for effort to be taken into account.
+
+``` r
 #An inital weighted network
 startingNet = erdos.renyi.game(n=10, type = c("gnm"), p.or.m = 15)
 E(startingNet)$weight<-c(2,25,1,1,1,1,4,5,6,9,2,1,2,1,2)
@@ -53,7 +39,8 @@ plot(startingNet, edge.width=E(startingNet)$weight^0.5,edge.color="orange", vert
 plot(predWeightedNet, edge.width=E(predWeightedNet)$weight^0.5,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 ```
 
+![](README_files/figure-markdown_github/unnamed-chunk-2-1.png)
 
-###Reference:
+### Reference:
 
-Ilany, A. & Akçay, E. (2016) Social inheritance can explain the structure of animal social networks. Nature Communications, 7, 12084.  
+Ilany, A. & AkÃ§ay, E. (2016) Social inheritance can explain the structure of animal social networks. Nature Communications, 7, 12084.
