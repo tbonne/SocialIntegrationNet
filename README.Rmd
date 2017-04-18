@@ -1,7 +1,4 @@
----
-title: "socialIntegrationNet"
-output: html_notebook
----
+#socialIntegrationNet
 
 ### Modeling social integration   
 
@@ -22,10 +19,12 @@ startingNet = erdos.renyi.game(n=25, type = c("gnm"), p.or.m = 45)
 predictedNet<-socialInduction(startingNet, Pn=0.4, Pr=0.1, Pb=1, iter=100)
 
 #compare starting and ending network properties
-par(mfrow=c(1,2))
+par(mfrow=c(1,2), mar=c(1,1,1,1))
 plot(startingNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 plot(predictedNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)  
 ```
+
+![alt tag](figs/socialInduction_ex1.png)  
   
 2. Weighted Social Indction.  
 
@@ -40,10 +39,13 @@ E(startingNet)$weight<-c(2,25,1,1,1,1,4,5,6,9,2,1,2,1,2)
 predWeightedNet<-socialInductionWeighted(startingNet, Pn=0.4,Pr=0.1,Pb=1,En1=0.1,En2=4,Er1=0.1,Er2=4,maxE=100,iter=100)
 
 #compare starting and ending network properties
-par(mfrow=c(1,2))
+par(mfrow=c(1,2), mar=c(1,1,1,1))
 plot(startingNet, edge.width=E(startingNet)$weight^0.5,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 plot(predWeightedNet, edge.width=E(predWeightedNet)$weight^0.5,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 ```
+
+![alt tag](figs/SocialInductionWeighted_ex2.png) 
+
 
 Reference:
 
