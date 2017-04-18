@@ -24,7 +24,7 @@ plot(startingNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, l
 plot(predictedNet,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)  
 ```
 
-![alt tag](figs/socialInduction_ex1.png)  
+![SocialInduction](figs/SocialInduction_ex1.png)  
   
 2. Weighted Social Indction.  
 
@@ -44,7 +44,7 @@ plot(startingNet, edge.width=E(startingNet)$weight^0.5,edge.color="orange", vert
 plot(predWeightedNet, edge.width=E(predWeightedNet)$weight^0.5,edge.color="orange", vertex.color="gray40", vertex.size = 20, layout=layout_with_fr, vertex.label=NA)
 ```
 
-![alt tag](figs/SocialInductionWeighted_ex2.png) 
+![SocialInductionWeighted](figs/SocialInductionWeighted_ex2.png) 
 
 
 Reference:
