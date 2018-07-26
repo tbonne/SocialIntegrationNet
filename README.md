@@ -44,4 +44,5 @@ plot(predWeightedNet, edge.width=E(predWeightedNet)$weight^0.5,edge.color="orang
 ### References:
 
 Ilany, A. & Akçay, E. (2016) Social inheritance can explain the structure of animal social networks. Nature Communications, 7, 12084.
+   
 Jarrett, J.D., Bonnell, T.R., Young, C., Barrett, L. & Henzi, S.P. (2018) Network integration and limits to social inheritance in vervet monkeys.
